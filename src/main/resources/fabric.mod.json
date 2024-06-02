@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "extrahud",
+  "version": "${version}",
+  "name": "ExtraHUD",
+  "description": "",
+  "authors": [
+    "Ceziy"
+  ],
+  "contact": {
+    "repo": "https://github.com/Cesiy/ExtraHUD"
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/extrahud/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.ceziy.extrahud.extrahud.client.ExtraHUDClient"
+    ],
+    "main": [
+      "me.ceziy.extrahud.extrahud.ExtraHUD"
+    ]
+  },
+  "mixins": [
+    "extrahud.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
