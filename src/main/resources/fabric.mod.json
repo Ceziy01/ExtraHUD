@@ -15,7 +15,7 @@
   "environment": "client",
   "entrypoints": {
     "client": [
-      "me.ceziy.extrahud.extrahud.client.ExtraHUDClient"
+      "me.ceziy.extrahud.extrahud.ExtraHUDClient"
     ],
     "main": [
       "me.ceziy.extrahud.extrahud.ExtraHUD"
