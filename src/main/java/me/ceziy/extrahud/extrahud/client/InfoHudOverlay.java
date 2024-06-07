@@ -11,12 +11,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Position;
+import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 
 public class InfoHudOverlay implements HudRenderCallback {
-    private static final Identifier TEXTURE = new Identifier(ExtraHUD.MOD_ID,
-            "textures/custom_hud/thing.png");
     private static final Identifier BACK = new Identifier(ExtraHUD.MOD_ID,
             "textures/custom_hud/back.png");
 
@@ -25,10 +25,11 @@ public class InfoHudOverlay implements HudRenderCallback {
         int x = 0;
         int y = 0;
         MinecraftClient client = MinecraftClient.getInstance();
-        if (ModConfigs.SHOW_HUD) {
+        if (!ModConfigs.SHOW_HUD) {
             PlayerEntity player = client.player;
             Position pos = player.getPos();
-            int light_level = client.world.getLightLevel(player.getBlockPos());
+            int block_light_lev = client.world.getLightLevel(LightType.BLOCK, BlockPos.ofFloored(pos));
+            int light_level = block_light_lev;
 
             //RenderSystem.setShaderColor(0f, 0f, 0f, 0.5f);
             //context.drawTexture(BACK, x, y, 0, 0, 90, 40);
@@ -52,8 +53,9 @@ public class InfoHudOverlay implements HudRenderCallback {
             ItemStack light_item = Items.LIGHT.asItem().getDefaultStack();
             context.drawItem(light_item, x +1, y +19);
             context.drawText(client.textRenderer, Text.literal(" " + String.valueOf(light_level)), x +18, y +23,  0xffffff, false);
-
         }
 
     }
+
+
 }
