@@ -1,6 +1,6 @@
 package me.ceziy.extrahud.extrahud;
 
-import me.ceziy.extrahud.extrahud.config.ModConfigs;
+import me.ceziy.extrahud.extrahud.config.ModConfig;
 import me.ceziy.extrahud.extrahud.key.ModKeys;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -13,7 +13,9 @@ public class ExtraHUD implements ModInitializer {
     @Override
     public void onInitialize() {
         LOGGER.info("Initializing mod " + MOD_ID);
-        ModConfigs.registerConfigs();
+
         ModKeys.registerKeys();
+
+        ModConfig.loadConfig();
     }
 }

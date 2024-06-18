@@ -19,6 +19,9 @@
     ],
     "main": [
       "me.ceziy.extrahud.extrahud.ExtraHUD"
+    ],
+    "modmenu": [
+      "me.ceziy.extrahud.extrahud.modmenu.ExtraHUDMenuApiImpl"
     ]
   },
   "mixins": [
