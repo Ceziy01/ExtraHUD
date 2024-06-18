@@ -11,15 +11,40 @@ import me.ceziy.extrahud.extrahud.config.ModConfig;
 public class ModConfigScreen {
     public static Screen getConfigScreen(Screen parent) {
         ConfigBuilder builder = ConfigBuilder.create()
-                .setParentScreen(parent);
-
-        ConfigCategory general = builder.getOrCreateCategory(Text.translatable("category.modconfig.general"));
+                .setParentScreen(parent)
+                .setTitle(Text.translatable("modmenu.configscreen.title"));
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("modmenu.configscreen.showhud"), ModConfig.INSTANCE.SHOW_HUD)
+        //Main Category
+        ConfigCategory general = builder.getOrCreateCategory(Text.translatable("modmenu.configscreen.maincategory"));
+
+        general.addEntry(entryBuilder.startBooleanToggle(Text.translatable("modmenu.configscreen.showhud"), ModConfig.INSTANCE.showhud)
                 .setDefaultValue(true)
-                .setSaveConsumer(newValue -> ModConfig.INSTANCE.SHOW_HUD = newValue)
+                .setSaveConsumer(newValue -> ModConfig.INSTANCE.showhud = newValue)
+                .build());
+
+        //Display Category
+        ConfigCategory display = builder.getOrCreateCategory(Text.translatable("modmenu.configscreen.displaycategory"));
+
+        display.addEntry(entryBuilder.startBooleanToggle(Text.translatable("modmenu.configscreen.showdimentionwithcoords"), ModConfig.INSTANCE.showdimentionwithcoords)
+                .setDefaultValue(true)
+                .setSaveConsumer(newValue -> ModConfig.INSTANCE.showdimentionwithcoords= newValue)
+                .build());
+
+        display.addEntry(entryBuilder.startBooleanToggle(Text.translatable("modmenu.configscreen.showoverworldcoords"), ModConfig.INSTANCE.showoverworldcoords)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ModConfig.INSTANCE.showoverworldcoords= newValue)
+                .build());
+
+        display.addEntry(entryBuilder.startBooleanToggle(Text.translatable("modmenu.configscreen.shownetherwithcoords"), ModConfig.INSTANCE.shownethercoords)
+                .setDefaultValue(false)
+                .setSaveConsumer(newValue -> ModConfig.INSTANCE.shownethercoords= newValue)
+                .build());
+
+        display.addEntry(entryBuilder.startBooleanToggle(Text.translatable("modmenu.configscreen.showblocklightlevel"), ModConfig.INSTANCE.showblocklightlevel)
+                .setDefaultValue(true)
+                .setSaveConsumer(newValue -> ModConfig.INSTANCE.showblocklightlevel = newValue)
                 .build());
 
         builder.setSavingRunnable(ModConfig::saveConfig);

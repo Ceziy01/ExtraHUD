@@ -20,11 +20,12 @@ public class ModKeys {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (keyBinding.wasPressed()) {
-                if (ModConfig.INSTANCE.SHOW_HUD) {
-                    ModConfig.INSTANCE.SHOW_HUD = false;
+                if (ModConfig.INSTANCE.showhud) {
+                    ModConfig.INSTANCE.showhud = false;
                 } else {
-                    ModConfig.INSTANCE.SHOW_HUD = true;
+                    ModConfig.INSTANCE.showhud = true;
                 }
+                ModConfig.saveConfig();
             }
         });
     }

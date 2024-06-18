@@ -17,7 +17,11 @@ public class ModConfig {
 
     private static final Path CONFIG_PATH = Paths.get("config", "extrahud.json");
 
-    public boolean SHOW_HUD = true;
+    public boolean showhud = true;
+    public boolean showdimentionwithcoords = true;
+    public boolean showoverworldcoords = true;
+    public boolean shownethercoords = true;
+    public boolean showblocklightlevel = true;
 
     public static void loadConfig() {
         if (Files.exists(CONFIG_PATH)) {
