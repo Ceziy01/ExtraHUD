@@ -1,5 +1,8 @@
 {
   "category.extrahud": "Extra HUD",
 
-  "key.extrahud": "Show/Hide HUD"
+  "key.extrahud": "Show/Hide HUD",
+
+  "modmenu.configscreen.title": "Extra Hud settings",
+  "modmenu.configscreen.showhud": "Show Extra HUD"
 }

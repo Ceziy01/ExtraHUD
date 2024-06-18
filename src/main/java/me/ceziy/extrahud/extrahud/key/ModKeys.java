@@ -1,6 +1,6 @@
 package me.ceziy.extrahud.extrahud.key;
 
-import me.ceziy.extrahud.extrahud.config.ModConfigs;
+import me.ceziy.extrahud.extrahud.config.ModConfig;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.option.KeyBinding;
@@ -20,10 +20,10 @@ public class ModKeys {
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (keyBinding.wasPressed()) {
-                if (ModConfigs.SHOW_HUD) {
-                    ModConfigs.SHOW_HUD = false;
+                if (ModConfig.INSTANCE.SHOW_HUD) {
+                    ModConfig.INSTANCE.SHOW_HUD = false;
                 } else {
-                    ModConfigs.SHOW_HUD = true;
+                    ModConfig.INSTANCE.SHOW_HUD = true;
                 }
             }
         });

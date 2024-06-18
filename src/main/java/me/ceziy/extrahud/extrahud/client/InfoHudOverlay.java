@@ -1,7 +1,8 @@
 package me.ceziy.extrahud.extrahud.client;
 
 import me.ceziy.extrahud.extrahud.ExtraHUD;
-import me.ceziy.extrahud.extrahud.config.ModConfigs;
+import me.ceziy.extrahud.extrahud.config.ModConfig;
+
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
@@ -25,7 +26,7 @@ public class InfoHudOverlay implements HudRenderCallback {
         int x = 0;
         int y = 0;
         MinecraftClient client = MinecraftClient.getInstance();
-        if (!ModConfigs.SHOW_HUD) {
+        if (ModConfig.INSTANCE.SHOW_HUD) {
             PlayerEntity player = client.player;
             Position pos = player.getPos();
             int block_light_lev = client.world.getLightLevel(LightType.BLOCK, BlockPos.ofFloored(pos));
