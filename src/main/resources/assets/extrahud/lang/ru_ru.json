@@ -12,5 +12,6 @@
   "modmenu.configscreen.showdimentionwithcoords": "Показать текущее измерение и координаты",
   "modmenu.configscreen.showoverworldcoords": "Показать координаты в верхнем мире",
   "modmenu.configscreen.shownetherwithcoords": "Показать координаты в незере",
-  "modmenu.configscreen.showblocklightlevel": "Показать уровень источника света"
+  "modmenu.configscreen.showblocklightlevel": "Показать уровень источника света",
+  "modmenu.configscreen.viewcategory": "Display"
 }

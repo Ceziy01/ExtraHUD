@@ -5,7 +5,7 @@
 
   "modmenu.configscreen.title": "Extra Hud settings",
   "modmenu.configscreen.maincategory": "Main",
-  "modmenu.configscreen.viewcategory": "Display",
+  "modmenu.configscreen.displaycategory": "Display",
 
   "modmenu.configscreen.showhud": "Show Extra HUD",
 
