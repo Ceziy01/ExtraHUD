@@ -1,16 +1,17 @@
 {
   "category.extrahud": "Extra HUD",
 
-  "key.extrahud": "Show/Hide HUD",
+  "extrahud.key.hidehud": "Show/Hide HUD",
+  "extrahud.key.opensettings": "Open ExtraHUD settings",
 
-  "modmenu.configscreen.title": "Extra Hud settings",
+  "modmenu.configscreen.title": "ExtraHud settings",
   "modmenu.configscreen.maincategory": "Main",
   "modmenu.configscreen.displaycategory": "Display",
 
   "modmenu.configscreen.showhud": "Show Extra HUD",
 
-  "modmenu.configscreen.showdimentionwithcoords": "Show Dimention and coordinates",
-  "modmenu.configscreen.showoverworldcoords": "Show coordinates in overworld",
+  "modmenu.configscreen.playercoords": "Player's coordinates",
   "modmenu.configscreen.shownetherwithcoords": "Show coordinates in nether",
-  "modmenu.configscreen.showblocklightlevel": "Show block light level"
+  "modmenu.configscreen.lightlevel": "Light level",
+  "modmenu.configscreen.gametime": "Game time"
 }

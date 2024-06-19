@@ -6,7 +6,7 @@ import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.text.Text;
 
-import me.ceziy.extrahud.extrahud.config.ModConfig;
+import java.util.Arrays;
 
 public class ModConfigScreen {
     public static Screen getConfigScreen(Screen parent) {
@@ -27,25 +27,34 @@ public class ModConfigScreen {
         //Display Category
         ConfigCategory display = builder.getOrCreateCategory(Text.translatable("modmenu.configscreen.displaycategory"));
 
-        display.addEntry(entryBuilder.startBooleanToggle(Text.translatable("modmenu.configscreen.showdimentionwithcoords"), ModConfig.INSTANCE.showdimentionwithcoords)
-                .setDefaultValue(true)
-                .setSaveConsumer(newValue -> ModConfig.INSTANCE.showdimentionwithcoords= newValue)
-                .build());
-
-        display.addEntry(entryBuilder.startBooleanToggle(Text.translatable("modmenu.configscreen.showoverworldcoords"), ModConfig.INSTANCE.showoverworldcoords)
-                .setDefaultValue(false)
-                .setSaveConsumer(newValue -> ModConfig.INSTANCE.showoverworldcoords= newValue)
-                .build());
+        display.addEntry(entryBuilder.startStringDropdownMenu(Text.translatable("modmenu.configscreen.playercoords"), ModConfig.INSTANCE.coordinatestype)
+                .setDefaultValue("Dimentional")
+                .setSelections(Arrays.asList("Dimentional", "Overworld", "Off"))
+                .setSaveConsumer(newValue -> ModConfig.INSTANCE.coordinatestype = newValue)
+                .setSuggestionMode(false)
+                .build()
+        );
 
         display.addEntry(entryBuilder.startBooleanToggle(Text.translatable("modmenu.configscreen.shownetherwithcoords"), ModConfig.INSTANCE.shownethercoords)
                 .setDefaultValue(false)
-                .setSaveConsumer(newValue -> ModConfig.INSTANCE.shownethercoords= newValue)
+                .setSaveConsumer(newValue -> ModConfig.INSTANCE.shownethercoords = newValue)
                 .build());
 
-        display.addEntry(entryBuilder.startBooleanToggle(Text.translatable("modmenu.configscreen.showblocklightlevel"), ModConfig.INSTANCE.showblocklightlevel)
-                .setDefaultValue(true)
-                .setSaveConsumer(newValue -> ModConfig.INSTANCE.showblocklightlevel = newValue)
-                .build());
+        display.addEntry(entryBuilder.startStringDropdownMenu(Text.translatable("modmenu.configscreen.lightlevel"), ModConfig.INSTANCE.lighttype)
+                .setDefaultValue("Mixed")
+                .setSelections(Arrays.asList("Mixed", "Block", "Sky", "Off"))
+                .setSaveConsumer(newValue -> ModConfig.INSTANCE.lighttype = newValue)
+                .setSuggestionMode(false)
+                .build()
+        );
+
+        display.addEntry(entryBuilder.startStringDropdownMenu(Text.translatable("modmenu.configscreen.gametime"), ModConfig.INSTANCE.timetype)
+                .setDefaultValue("24h")
+                .setSelections(Arrays.asList("24h", "12h", "Off"))
+                .setSaveConsumer(newValue -> ModConfig.INSTANCE.timetype = newValue)
+                .setSuggestionMode(false)
+                .build()
+        );
 
         builder.setSavingRunnable(ModConfig::saveConfig);
 

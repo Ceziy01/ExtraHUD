@@ -18,10 +18,10 @@ public class ModConfig {
     private static final Path CONFIG_PATH = Paths.get("config", "extrahud.json");
 
     public boolean showhud = true;
-    public boolean showdimentionwithcoords = true;
-    public boolean showoverworldcoords = true;
-    public boolean shownethercoords = true;
-    public boolean showblocklightlevel = true;
+    public boolean shownethercoords = false;
+    public String coordinatestype = "Dimentional";
+    public String lighttype = "Mixed";
+    public String timetype = "24h";
 
     public static void loadConfig() {
         if (Files.exists(CONFIG_PATH)) {
