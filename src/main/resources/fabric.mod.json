@@ -3,14 +3,14 @@
   "id": "extrahud",
   "version": "${version}",
   "name": "ExtraHUD",
-  "description": "",
+  "description": "This mod shows some useful information on the screen.",
   "authors": [
     "Ceziy"
   ],
   "contact": {
-    "repo": "https://github.com/Cesiy/ExtraHUD"
+    "sources": "https://github.com/Ceziy01/ExtraHUD"
   },
-  "license": "All-Rights-Reserved",
+  "license": "MIT",
   "icon": "assets/extrahud/icon.png",
   "environment": "client",
   "entrypoints": {
@@ -19,6 +19,9 @@
     ],
     "main": [
       "me.ceziy.extrahud.extrahud.ExtraHUD"
+    ],
+    "modmenu": [
+      "me.ceziy.extrahud.extrahud.modmenu.ExtraHUDMenuApiImpl"
     ]
   },
   "mixins": [
@@ -28,5 +31,12 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.modrinth": "https://modrinth.com/mod/extrahud"
+      }
+    }
   }
 }

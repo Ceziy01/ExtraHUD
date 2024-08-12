@@ -1,5 +1,17 @@
 {
   "category.extrahud": "Extra HUD",
 
-  "key.extrahud": "Показать/Скрыть HUD"
+  "extrahud.key.hidehud": "Показать/Скрыть HUD",
+  "extrahud.key.opensettings": "Открыть настройки ExtraHUD",
+
+  "modmenu.configscreen.title": "Настройки ExtraHud",
+  "modmenu.configscreen.maincategory": "Основные",
+  "modmenu.configscreen.displaycategory": "Отображение",
+
+  "modmenu.configscreen.showhud": "Показать дополнительный HUD",
+
+  "modmenu.configscreen.playercoords": "Координаты игрока",
+  "modmenu.configscreen.shownetherwithcoords": "Показать координаты в незере",
+  "modmenu.configscreen.lightlevel": "Уровень света",
+  "modmenu.configscreen.gametime": "Время в игре"
 }

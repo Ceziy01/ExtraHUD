@@ -1,0 +1,15 @@
+{
+  "minecraft:nether/explore_nether": {
+    "criteria": {
+      "minecraft:warped_forest": "2024-06-02 15:55:15 +0300"
+    },
+    "done": false
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2024-06-02 15:55:14 +0300"
+    },
+    "done": true
+  },
+  "DataVersion": 3700
+}
