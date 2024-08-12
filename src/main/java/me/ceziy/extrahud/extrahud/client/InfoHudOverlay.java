@@ -6,10 +6,12 @@ import me.ceziy.extrahud.extrahud.config.ModConfig;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
@@ -18,14 +20,13 @@ import net.minecraft.world.LightType;
 import net.minecraft.world.World;
 
 public class InfoHudOverlay implements HudRenderCallback {
-    private static final Identifier BACK = new Identifier(ExtraHUD.MOD_ID,
-            "textures/custom_hud/back.png");
+    //private static final Identifier BACK = new Identifier(ExtraHUD.MOD_ID, "textures/custom_hud/back.png");
 
     private int iconY;
     private int textY;
 
     @Override
-    public void onHudRender(DrawContext context, float tickDelta) {
+    public void onHudRender(DrawContext context, RenderTickCounter tickCounter) {
         int x = 0;
         int y = 0;
         iconY = 1;
@@ -56,9 +57,9 @@ public class InfoHudOverlay implements HudRenderCallback {
                     pos_item = Items.GRASS_BLOCK;
                 }
 
-                context.drawItem(pos_item.getDefaultStack(), x +1, iconY);
+                context.drawItem(pos_item.getDefaultStack(), x + 1, iconY);
                 Text coords = Text.literal(String.format(" %.0f %.0f %.0f", Math.ceil(pos.getX()) - 1, Math.ceil(pos.getY()), Math.floor(pos.getZ())));
-                context.drawText(client.textRenderer, coords, x +18, textY,  0xffffff, false);
+                context.drawText(client.textRenderer, coords, x + 18, textY, 0xffffff, false);
                 textY += 18;
                 iconY += 18;
             }
@@ -68,14 +69,14 @@ public class InfoHudOverlay implements HudRenderCallback {
                 Item pos_item = Items.NETHERRACK;
                 Text coords;
 
-                context.drawItem(pos_item.getDefaultStack(), x +1, iconY);
+                context.drawItem(pos_item.getDefaultStack(), x + 1, iconY);
 
                 if (player.getWorld().getRegistryKey() == World.NETHER) {
                     coords = Text.literal(String.format(" %.0f %.0f %.0f", Math.ceil(pos.getX()) - 1, Math.ceil(pos.getY()), Math.floor(pos.getZ())));
                 } else {
                     coords = Text.literal(String.format(" %.0f %.0f %.0f", Math.ceil(pos.getX() / 8), Math.ceil(pos.getY()), Math.floor(pos.getZ() / 8)));
                 }
-                context.drawText(client.textRenderer, coords, x +18, textY,  0xffffff, false);
+                context.drawText(client.textRenderer, coords, x + 18, textY, 0xffffff, false);
                 textY += 18;
                 iconY += 18;
             }
@@ -96,12 +97,14 @@ public class InfoHudOverlay implements HudRenderCallback {
                 }
 
                 ItemStack light_item = Items.LIGHT.asItem().getDefaultStack();
-                context.drawItem(light_item, x +1, iconY);
-                context.drawText(client.textRenderer, Text.literal(" " + String.valueOf(light_level)), x +18, textY,  0xffffff, false);
+                //setLightLevel(light_item, light_level);
+                context.drawItem(light_item, x + 1, iconY);
+                context.drawText(client.textRenderer, Text.literal(" " + String.valueOf(light_level)), x + 18, textY, 0xffffff, false);
                 textY += 18;
                 iconY += 18;
             }
 
+            //Game time
             String time_type = ModConfig.INSTANCE.timetype;
             if (!time_type.equals("Off")) {
                 String formatedTime = (time_type.equals("24h")) ? getTime24(client.world) : getTime12(client.world);
@@ -117,8 +120,8 @@ public class InfoHudOverlay implements HudRenderCallback {
     public String getTime24(World world) {
         long time = world.getTimeOfDay() % 24000;
 
-        int hours = (int)((time / 1000 + 6) % 24);
-        int minutes = (int)(60 * (time % 1000) / 1000);
+        int hours = (int) ((time / 1000 + 6) % 24);
+        int minutes = (int) (60 * (time % 1000) / 1000);
 
         return String.format("%02d:%02d", hours, minutes);
     }
@@ -126,8 +129,8 @@ public class InfoHudOverlay implements HudRenderCallback {
     public String getTime12(World world) {
         long time = world.getTimeOfDay() % 24000;
 
-        int hours = (int)((time / 1000 + 6) % 24);
-        int minutes = (int)(60 * (time % 1000) / 1000);
+        int hours = (int) ((time / 1000 + 6) % 24);
+        int minutes = (int) (60 * (time % 1000) / 1000);
 
         String period = (hours >= 12) ? "PM" : "AM";
 
@@ -138,4 +141,14 @@ public class InfoHudOverlay implements HudRenderCallback {
 
         return String.format("%02d:%02d %s", hours, minutes, period);
     }
+
+    /*public static void setLightLevel(ItemStack stack, int lightLevel) {
+        if (stack.getItem() == Items.LIGHT) {
+            NbtCompound nbt = stack.getOrCreateNbt();
+            nbt.putByte("BlockStateTag", (byte) lightLevel);
+            stack.setNbt(nbt);
+        } else {
+            throw new IllegalArgumentException("Item must be a light block.");
+        }
+    }*/
 }
