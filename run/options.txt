@@ -120,7 +120,9 @@ key_key.hotbar.6:key.keyboard.6
 key_key.hotbar.7:key.keyboard.7
 key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
-key_key.examplemod.spook:key.keyboard.h
+key_extrahud.key.hidehud:key.keyboard.h
+key_extrahud.key.opensettings:key.keyboard.apostrophe
+key_key.modmenu.open_menu:key.keyboard.unknown
 soundCategory_master:0.0
 soundCategory_music:0.0
 soundCategory_record:1.0
