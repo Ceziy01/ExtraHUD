@@ -1,0 +1,50 @@
+/time set midnight
+/time set day
+/time set midnight
+/execute in minecraft:the_nether run tp ~ ~ ~
+/execute in minecraft:overworld run tp ~ ~ ~
+/execute in minecraft:the_nether run tp ~ ~ ~
+/execute in minecraft:overworld run tp ~ ~ ~
+/tp 0 90 0
+/setblock ~ ~ ~ minecraft:stone
+/execute in minecraft:the_nether run tp ~ ~ ~
+/execute in minecraft:overworld run tp ~ ~ ~
+/time set midnight
+/time set day
+/time set midnight
+/time set day
+/time set midnight
+/time set night
+/time set noon
+/time set 10
+/time set 100
+/time set 1000
+/time set 100t
+/time set 1000t
+/time set 1000s
+/time set 1s
+/time set 0s
+/time set 1000s
+/time set 900s
+/time set 959s
+/time set 950s
+/time set 940s
+/time set midnight
+/time set day
+/time set night
+/time set noon
+/time set night
+/time set midnight
+/time set noon
+/time set 5990t
+/time set 5980t
+/time set 5910t
+/time set noon
+/time set midnight
+/time set noon
+/time set 6200t
+/time set 6400t
+/time set 6900t
+/time set 7000t
+/time set midnight
+/time set day

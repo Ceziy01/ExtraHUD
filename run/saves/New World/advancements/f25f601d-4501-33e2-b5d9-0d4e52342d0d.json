@@ -1,0 +1,29 @@
+{
+  "minecraft:husbandry/tame_an_animal": {
+    "criteria": {
+      "tamed_animal": "2024-06-07 18:16:36 +0300"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/crafting_table": {
+    "criteria": {
+      "unlock_right_away": "2024-06-07 18:15:32 +0300"
+    },
+    "done": true
+  },
+  "minecraft:end/elytra": {
+    "criteria": {
+      "elytra": "2024-06-07 18:17:01 +0300"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:beach": "2024-06-07 18:16:47 +0300",
+      "minecraft:forest": "2024-06-07 18:15:33 +0300",
+      "minecraft:lukewarm_ocean": "2024-06-07 18:17:12 +0300"
+    },
+    "done": false
+  },
+  "DataVersion": 3700
+}
